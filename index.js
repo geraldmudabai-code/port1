@@ -1,0 +1,102 @@
+// Typing animation
+const typedText = document.getElementById("typed-text");
+const textArray = ["Web Developer", "Designer", "Problem Solver", "Frontend Developer"];
+let textIndex = 0;
+let charIndex = 0;
+
+function type() {
+  if (charIndex < textArray[textIndex].length) {
+    typedText.textContent += textArray[textIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(type, 100);
+  } else {
+    setTimeout(erase, 2000);
+  }
+}
+
+function erase() {
+  if (charIndex > 0) {
+    typedText.textContent = textArray[textIndex].substring(0, charIndex - 1);
+    charIndex--;
+    setTimeout(erase, 50);
+  } else {
+    textIndex = (textIndex + 1) % textArray.length;
+    setTimeout(type, 500);
+  }
+}
+document.addEventListener("DOMContentLoaded", type);
+
+// Dark mode toggle
+const themeToggle = document.getElementById("theme-toggle");
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  themeToggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+});
+
+// Back to top button
+const backToTop = document.getElementById("back-to-top");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backToTop.classList.add("show");
+  } else {
+    backToTop.classList.remove("show");
+  }
+});
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+// Contact form validation
+const form = document.getElementById("contact-form");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const messageInput = document.getElementById("");
+const formStatus = document.getElementById("form-status");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let valid = true;
+
+  // Name check
+  if (nameInput.value.trim() === "") {
+    showError(nameInput, "Name is required");
+    valid = false;
+  } else {
+    showError(nameInput, "");
+  }
+
+  // Email check
+  if (!validateEmail(emailInput.value)) {
+    showError(emailInput, "Enter a valid email");
+    valid = false;
+  } else {
+    showError(emailInput, "");
+  }
+
+  // Message check
+  if (messageInput.value.trim().length < 10) {
+    showError(messageInput, "Message must be at least 10 characters");
+    valid = false;
+  } else {
+    showError(messageInput, "");
+  }
+
+  if (valid) {
+    formStatus.textContent = "Message sent successfully! ✅";
+    formStatus.style.color = "green";
+    form.reset();
+  } else {
+    formStatus.textContent = "Please fix the errors above ❌";
+    formStatus.style.color = "red";
+  }
+});
+
+function showError(input, message) {
+  const error = input.nextElementSibling;
+  error.textContent = message;
+}
+
+function validateEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+
