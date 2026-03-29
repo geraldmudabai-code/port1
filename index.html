@@ -3,87 +3,220 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio — responsive, accessible front-end projects and web development services.">
   <title>Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Welcome Overlay -->
+  <div id="welcome-overlay" class="welcome-overlay" tabindex="-1" aria-modal="true" role="dialog">
+    <div class="welcome-content">
+      <img src="img/pro.png" alt="Profile picture" class="welcome-profile" />
+      <h1>Gerald Mudabai</h1>
+      <p class="welcome-tagline">Creative Front-End Developer & Problem Solver</p>
+      <div class="welcome-socials">
+        <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.74-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .98-.31 3.2 1.18a11.1 11.1 0 0 1 2.92-.39c.99 0 1.99.13 2.92.39 2.22-1.49 3.2-1.18 3.2-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.41-5.27 5.7.42.36.79 1.09.79 2.2 0 1.59-.01 2.87-.01 3.26 0 .31.21.67.8.56A11.52 11.52 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg></a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn"><svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.88v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg></a>
+        <a href="mailto:geraldmudabai@gmail.com" aria-label="Email"><svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M12 13.065l-11.99-7.065v14h23.98v-14zm11.99-9.065h-23.98l11.99 7.065z"/></svg></a>
+      </div>
+      <div class="welcome-funfact">
+        <span id="fun-fact">Loading fun fact...</span>
+      </div>
+      <button id="continue-btn" class="btn">Continue</button>
+      <a href="#main" class="welcome-learn">Learn more about me ↓</a>
+    </div>
+  </div>
+  <a class="skip-link" href="#main">Skip to main content</a>
   <nav class="navbar">
     <div class="container">
-      <h2 class="logo">MyPortfolio</h2>
+      <h2 class="logo">My Portfolio</h2>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><button id="theme-toggle">🌙</button></li>
       </ul>
     </div>
   </nav>
 
-  <header id="home" class="header">
-    <div class="container">
-      <h1><span id="typed-text"></span></h1>
-      <p>I create responsive and user-friendly websites.</p>
-      <a href="#projects" class="btn">View My Work</a>
-    </div>
-  </header>
-
-  <section id="projects" class="projects">
-    <div class="container">
-      <h2>My Projects</h2>
-      <div class="project-grid">
-        <div class="project-item">
-          <img src="project1.jpg" alt="Project 1">
-          <h3>Project 1</h3>
-          <p>Description of project 1.</p>
+  <main id="main">
+    <header id="home" class="header">
+      <div class="container">
+        <h1><span id="typed-text" aria-live="polite"></span></h1>
+        <p class="home-intro">Hi, I'm Gerald Mudabai, a passionate front-end developer dedicated to building beautiful, accessible, and user-friendly websites that solve real problems.</p>
+        <div class="home-cta">
+          <a href="#projects" class="btn">See my work</a>
+          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+          <a href="resume.pdf" class="btn btn-secondary" download>Download Resume</a>
         </div>
-        <div class="project-item">
-          <img src="project2.jpg" alt="Project 2">
-          <h3>Project 2</h3>
-          <p>Description of project 2.</p>
+        <div class="home-stats">
+          <div class="stat"><span class="stat-num">3+</span><span class="stat-label">Years Experience</span></div>
+          <div class="stat"><span class="stat-num">12</span><span class="stat-label">Projects</span></div>
+          <div class="stat"><span class="stat-num">8</span><span class="stat-label">Happy Clients</span></div>
+        </div>
+        <div class="scroll-down-indicator" aria-hidden="true">
+          <span></span>
         </div>
       </div>
-    </div>
-  </section>
+    </header>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h2>About Me</h2>
+        <div class="about-flex">
+          <div class="about-img-col">
+            <img src="img/pro.png" alt="Gerald Mudabai profile" class="about-profile-img" />
+            <h3 class="about-name">Gerald Mudabai</h3>
+          </div>
+          <div class="about-content">
+            <p>I'm a passionate front-end developer with 3+ years of experience building beautiful, functional websites. I specialize in creating responsive designs that work seamlessly across all devices.</p>
+            <p>My journey in web development started with a love for clean code and user-centered design. I believe every pixel matters, and I'm committed to delivering pixel-perfect implementations with exceptional user experiences.</p>
+            <ul class="about-values">
+              <li>✨ Creativity & Innovation</li>
+              <li>🤝 Collaboration & Communication</li>
+              <li>🧩 Problem Solving</li>
+              <li>🌱 Lifelong Learning</li>
+              <li>🌍 Accessibility & Inclusion</li>
+            </ul>
+            <div class="about-timeline">
+              <h4>My Journey</h4>
+              <ul>
+                <li><strong>2021:</strong> Started my web development journey</li>
+                <li><strong>2022:</strong> Built my first client project</li>
+                <li><strong>2023:</strong> Joined a creative agency</li>
+                <li><strong>2024:</strong> Launched multiple portfolio projects</li>
+                <li><strong>2025:</strong> Mentored junior developers</li>
+              </ul>
+            </div>
+            <div class="about-hobbies">
+              <h4>Hobbies & Interests</h4>
+              <p>When I’m not coding, I enjoy hiking, photography, solving puzzles, and exploring new technologies.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+          <div class="project-item">
+            <img src="img/oinxcici.png" alt="Project 1 - Responsive web design showcase">
+            <h3>Project 1</h3>
+            <p>A clean, responsive website built with modern CSS Grid and Flexbox techniques.</p>
+            <a href="#" class="project-link">View Project →</a>
+          </div>
+          <div class="project-item">
+            <img src="img/pro.png" alt="Project 2 - Interactive dashboard prototype">
+            <h3>Project 2</h3>
+            <p>An interactive dashboard with smooth animations and real-time data visualization.</p>
+            <a href="#" class="project-link">View Project →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Frontend Development</h3>
+            <ul>
+              <li>HTML5 & CSS3</li>
+              <li>JavaScript (ES6+)</li>
+              <li>React & Vue.js</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Design</h3>
+            <ul>
+              <li>Responsive Design</li>
+              <li>UI/UX Principles</li>
+              <li>Figma & Adobe XD</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Tools & Technologies</h3>
+            <ul>
+              <li>Git & GitHub</li>
+              <li>Webpack & Build Tools</li>
+              <li>Testing & Debugging</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <h2>What Clients Say</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p>"Excellent work! Gerald delivered a beautiful, responsive website ahead of schedule. Highly recommended!"</p>
+            <strong>— Sarah Johnson</strong>
+            <span>CEO, TechStart Inc.</span>
+          </div>
+          <div class="testimonial-card">
+            <p>"Professional, detail-oriented, and always willing to go the extra mile. Great developer to work with."</p>
+            <strong>— Michael Chen</strong>
+            <span>Product Manager, Digital Solutions</span>
+          </div>
+          <div class="testimonial-card">
+            <p>"The website performs beautifully on all devices. User feedback has been overwhelmingly positive!"</p>
+            <strong>— Emma Rodriguez</strong>
+            <span>Marketing Director, Creative Agency</span>
+          </div>
+        </div>
+      </div> 
+    </section>
 
   <!-- <section id="contact" class="contact">
     <div class="container">
       <h2>Contact Me</h2>
-      <p>Email: example@mail.com</p>
+      <p>Email: geraldmudabai@gmail.com</p>
     </div>
   </section> -->
   <section id="contact" class="contact">
-  <div class="container">
-    <h2>Contact Me</h2>
-    <form id="contact-form" novalidate>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Your Name" required>
-        <small class="error-message"></small>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Your Email" required>
-        <small class="error-message"></small>
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="" rows="5" placeholder="Your Message" required></textarea>
-        <small class="error-message"></small>
-      </div>
-      <button type="submit" class="btn">Send Message</button>
-      <p id="form-status"></p>
-    </form>
-  </div>
-</section>
+    <div class="container">
+      <h2>Get in Touch</h2>
+      <p>Have a project idea or question? Send me a message below.</p>
+      <form id="contact-form" novalidate>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+          <small class="error-message"></small>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+          <small class="error-message"></small>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+          <small class="error-message"></small>
+        </div>
+        <button type="submit" class="btn">Send Message</button>
+        <p id="form-status"></p>
+      </form>
+    </div>
+  </section>
 
 <section id="footer" class="footer">
-  <div class="container">
-    <p>&copy; 2026 MyPortfolio. All rights reserved.</p>
+  <div class="container" style="text-align: center;">
+    <p>&copy; 2026 My Portfolio. All rights reserved.</p>
   </div>
 </section>
+  </main>
 
-  <button id="back-to-top">↑</button>
+  <button id="back-to-top" aria-label="Back to top">↑</button>
 
-  <script src="script.js"></script>
+  <script src="index.js">
+    
+  </script>
 </body>
 </html>
